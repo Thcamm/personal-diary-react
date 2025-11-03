@@ -1,0 +1,557 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "thcamm",
+      "email": "thcamm@example.com",
+      "password": "123456",
+      "avatar": "https://ui-avatars.com/api/?name=Thcamm&background=667eea&color=fff",
+      "createdAt": "2025-09-01T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "username": "the_hunter",
+      "email": "hunter@example.com",
+      "password": "123456",
+      "avatar": "https://ui-avatars.com/api/?name=The+Hunter&background=2c3e50&color=fff",
+      "createdAt": "2025-09-03T08:20:00Z"
+    },
+    {
+      "id": "3",
+      "username": "max_kepter",
+      "email": "max@example.com",
+      "password": "123456",
+      "avatar": "https://ui-avatars.com/api/?name=Max+Kepter&background=e74c3c&color=fff",
+      "createdAt": "2025-09-05T14:15:00Z"
+    },
+    {
+      "id": "4",
+      "username": "master_long",
+      "email": "long@example.com",
+      "password": "123456",
+      "avatar": "https://ui-avatars.com/api/?name=Master+Long&background=27ae60&color=fff",
+      "createdAt": "2025-09-07T11:30:00Z"
+    },
+    {
+      "id": "5",
+      "username": "nart_an",
+      "email": "nartan@example.com",
+      "password": "123456",
+      "avatar": "https://ui-avatars.com/api/?name=Nart+An&background=f39c12&color=fff",
+      "createdAt": "2025-09-10T09:45:00Z"
+    },
+    {
+      "id": "6",
+      "username": "duong_bui",
+      "email": "duong@example.com",
+      "password": "123456",
+      "avatar": "https://ui-avatars.com/api/?name=Duong+Bui&background=9b59b6&color=fff",
+      "createdAt": "2025-09-12T16:00:00Z"
+    },
+    {
+      "id": "7",
+      "username": "minh_mot",
+      "email": "minh@example.com",
+      "password": "123456",
+      "avatar": "https://ui-avatars.com/api/?name=Minh+Mot&background=3498db&color=fff",
+      "createdAt": "2025-09-15T13:20:00Z"
+    },
+    {
+      "id": "8",
+      "username": "thi_thao",
+      "email": "thithao@example.com",
+      "password": "123456",
+      "avatar": "https://ui-avatars.com/api/?name=Thi+Thao&background=e91e63&color=fff",
+      "createdAt": "2025-09-18T10:10:00Z"
+    }
+  ],
+  "diaries": [
+    {
+      "title": "Ngày đầu học React",
+      "content": "Hôm nay bắt đầu môn FER202, thầy giới thiệu về React. Nhìn cú pháp lạ lạ nhưng thú vị phết. \nThôi giờ về nhà đọc docs thôi, hy vọng không quá khó..",
+      "isPublic": true,
+      "userId": "1",
+      "createdAt": "2025-09-06T10:10:00Z",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "title": "Rank Challenger cuối cùng cũng tới",
+      "content": "3 tháng trời cày cuốc cuối cùng cũng lên Challenger. Từ Diamond 1 lên đây mất gần 200 games, đánh tới mức mỏi tay.\n\nMain Yasuo vẫn là đúng đắn nhất. Win rate 67% không phải đùa. Nhưng thật sự phải công nhận team cũng quyết định nhiều lắm.\n\nGiờ thì nghỉ 1 tuần, chơi ARAM cho vui thôi.",
+      "isPublic": true,
+      "createdAt": "2025-09-08T22:15:00Z",
+      "likes": 45
+    },
+    {
+      "id": "3",
+      "userId": "3",
+      "title": "Code bug 5 tiếng liền",
+      "content": "Ôi dồi ôi, cái bug này làm mình phát điên. 5 tiếng ngồi debug mà vẫn không ra.\n\nLỗi ở đâu đây trời, console.log khắp nơi rồi. Stack overflow cũng lục lọi hết. Có khi phải hỏi senior ngày mai thôi.\n\nCòn 2 ngày nữa là deadline rồi mà. Stress vãi.",
+      "isPublic": false,
+      "createdAt": "2025-09-10T23:45:00Z",
+      "likes": 0
+    },
+    {
+      "id": "4",
+      "userId": "4",
+      "title": "Công thức phở bò chuẩn",
+      "content": "Hôm nay nấu phở bò thành công rồi cả nhà. Nước dùng trong, thơm mùi hồi, quế. Thịt bò tái vừa chín tới.\n\nBí quyết là xương hầm 4 tiếng, lửa liu riu. Còn phải rang gừng hành cho thơm trước khi cho vào nồi.\n\nLần sau thử làm phở gà xem sao. Nhưng chắc không ngon bằng phở bò đâu.",
+      "isPublic": true,
+      "createdAt": "2025-09-13T12:30:00Z",
+      "likes": 32
+    },
+    {
+      "id": "5",
+      "userId": "5",
+      "title": "Playlist mưa hay nhất",
+      "content": "Trời mưa cả ngày, mở playlist chill nghe tới tối luôn.\n\nÔng mặt trời, Sao anh chưa về nhà, Em của ngày hôm qua... Những bài này nghe hoài không chán.\n\nThêm tí Sơn Tùng nữa là chuẩn. Có điều nghe nhiều quá hơi buồn, nhưng thôi kệ.",
+      "isPublic": true,
+      "createdAt": "2025-09-16T17:20:00Z",
+      "likes": 29
+    },
+    {
+      "id": "6",
+      "userId": "1",
+      "title": "Hôm nay tôi buồn",
+      "content": "Chả biết sao buồn =)))))))",
+      "isPublic": false,
+      "createdAt": "2025-09-19T21:10:00Z",
+      "likes": 0,
+      "updatedAt": "2025-11-03T21:32:02.374Z"
+    },
+    {
+      "id": "7",
+      "userId": "6",
+      "title": "Đi gym lần đầu",
+      "content": "Hôm nay bạn rủ đi gym thử. Tập chân xong giờ đứng cũng khó.\n\nSquat 3 set, deadlift 3 set. Chưa quen nên cứ thấy run run. PT bảo form đúng rồi nhưng sức yếu quá.\n\nNgày mai chắc đau mỏi lắm. Nhưng thôi cố gắng đi tiếp, quyết tâm 3 tháng có body đẹp.",
+      "isPublic": true,
+      "createdAt": "2025-09-21T18:50:00Z",
+      "likes": 21
+    },
+    {
+      "id": "8",
+      "userId": "7",
+      "title": "Xem Everything Everywhere lần 3",
+      "content": "Phim này xem bao nhiêu lần vẫn thấy hay. Lần đầu xem không hiểu gì, lần 2 bắt đầu connect được.\n\nLần 3 này mới thấm hết message. Về gia đình, về việc chấp nhận bản thân, về tình yêu thương.\n\nMichelle Yeoh diễn quá đỉnh. Xứng đáng Oscar.",
+      "isPublic": true,
+      "createdAt": "2025-09-24T20:30:00Z",
+      "likes": 37
+    },
+    {
+      "id": "9",
+      "userId": "8",
+      "title": "Chia tay rồi",
+      "content": "3 năm bên nhau cuối cùng cũng đến hồi kết. Không còn cảm xúc như xưa nữa, cả 2 đều biết vậy.\n\nChia tay êm đẹp, không cãi vã gì. Chỉ là không còn hợp nữa thôi. Người ta lớn lên, thay đổi, rồi đi những con đường khác nhau.\n\nBuồn thì có, nhưng cũng nhẹ nhõm. Chúc anh hạnh phúc.",
+      "isPublic": false,
+      "createdAt": "2025-09-27T23:00:00Z",
+      "likes": 0
+    },
+    {
+      "id": "10",
+      "userId": "2",
+      "title": "Lần đầu ăn đồ Thái",
+      "content": "Hôm nay bạn rủ đi thử nhà hàng Thái mới mở. Gọi Tom Yum, Pad Thai, Mango Sticky Rice.\n\nTom Yum chua cay vừa phải, tôm to căng mọng. Pad Thai hơi ngọt nhưng cũng ổn. Mango Sticky Rice thì khỏi bàn, ngon tuyệt.\n\nGiá hơi cao nhưng chất lượng xứng đáng. Lần sau sẽ ghé lại.",
+      "isPublic": true,
+      "createdAt": "2025-09-30T13:45:00Z",
+      "likes": 24
+    },
+    {
+      "id": "11",
+      "userId": "3",
+      "title": "Fix bug xong rồi",
+      "content": "Cuối cùng cũng tìm ra lỗi. Hoá ra là do async await không đúng chỗ. Promise chưa resolve mà đã lấy data.\n\nThêm await vào là chạy ngon lành. Đơn giản vậy mà ngồi suy nghĩ 5 tiếng.\n\nBài học: đọc kỹ error message, đừng ngồi đoán mò.",
+      "isPublic": true,
+      "createdAt": "2025-10-02T09:20:00Z",
+      "likes": 41
+    },
+    {
+      "id": "12",
+      "userId": "4",
+      "title": "Làm bánh mì thành công",
+      "content": "Lần đầu làm bánh mì, kết quả ổn hơn mong đợi. Vỏ giòn, ruột xốp mềm.\n\nNhào bột 15 phút cho đến khi láng mịn. Ủ men 1 tiếng. Nướng 200 độ trong 25 phút.\n\nMùi bánh mì mới nướng lan tỏa khắp nhà, thơm phết. Lát nữa ăn kèm pate xem sao.",
+      "isPublic": true,
+      "createdAt": "2025-10-05T15:10:00Z",
+      "likes": 35
+    },
+    {
+      "id": "13",
+      "userId": "5",
+      "title": "Concert đầu tiên",
+      "content": "Đi concert Sơn Tùng với bạn. Sân vận động chật kín người, không khí cuồng nhiệt vô cùng.\n\nHát từ đầu đến cuối, hơi khàn cả giọng. Lạc trôi, Chúng ta không thuộc về nhau, Hãy trao cho anh... bài nào cũng hay.\n\nTrải nghiệm tuyệt vời. Lần sau có concert nữa chắc chắn sẽ đi.",
+      "isPublic": true,
+      "createdAt": "2025-10-08T22:40:00Z",
+      "likes": 52
+    },
+    {
+      "id": "14",
+      "userId": "1",
+      "title": "useEffect hook làm mình rối não",
+      "content": "Dependency array trong useEffect này phức tạp thật. Để rỗng thì chạy 1 lần, không để thì chạy mỗi lần render.",
+      "isPublic": false,
+      "createdAt": "2025-10-11T20:15:00Z",
+      "likes": 0,
+      "updatedAt": "2025-11-03T21:04:52.971Z"
+    },
+    {
+      "id": "15",
+      "userId": "6",
+      "title": "Tăng được 2kg rồi",
+      "content": "1 tháng tập gym đều đặn, tăng được 2kg. Cơ bắp cũng nổi lên chút rồi.\n\nĂn 6 bữa mỗi ngày, tập 5 buổi. Mệt mỏi nhưng thấy kết quả thì vui. Ngực to hơn, tay to hơn rõ rệt.\n\nMục tiêu 3 tháng tăng 5kg, giờ đã được gần nửa rồi. Cố lên.",
+      "isPublic": true,
+      "createdAt": "2025-10-14T17:30:00Z",
+      "likes": 29
+    },
+    {
+      "id": "16",
+      "userId": "7",
+      "title": "Oppenheimer xứng đáng Oscar",
+      "content": "3 tiếng xem phim mà không thấy chán chút nào. Cillian Murphy diễn xuất đỉnh cao.\n\nCâu chuyện về người cha của bom nguyên tử, về lương tâm, về hậu quả của khoa học. Suy ngẫm nhiều sau khi xem.\n\nChristopher Nolan làm phim là phải xem rạp, hiệu ứng âm thanh hình ảnh quá đỉnh.",
+      "isPublic": true,
+      "createdAt": "2025-10-17T21:00:00Z",
+      "likes": 44
+    },
+    {
+      "id": "17",
+      "userId": "8",
+      "title": "Ngày đầu đi làm thực tập",
+      "content": "Hôm nay là ngày đầu thực tập ở công ty. Hồi hộp lắm, sợ làm sai.\n\nSếp và mọi người rất nice, nhiệt tình hướng dẫn. Được assign làm task nhỏ, fix UI bug.\n\nMôi trường làm việc chuyên nghiệp, học được nhiều thứ. Hi vọng thực tập tốt để xin full-time.",
+      "isPublic": true,
+      "createdAt": "2025-10-20T08:30:00Z",
+      "likes": 31
+    },
+    {
+      "id": "18",
+      "userId": "2",
+      "title": "Thua rank rớt lại Master",
+      "content": "Losing streak 7 games liên tiếp. Từ Challenger 200LP giờ rớt về Master.\n\nĐội hình toàn troll, mình carry không nổi. Có game đánh tốt nhưng vẫn thua vì team.\n\nGiận lắm nhưng thôi nghỉ 1 ngày đã. Chơi khi tilt thì chỉ thua thêm thôi.",
+      "isPublic": false,
+      "createdAt": "2025-10-23T23:55:00Z",
+      "likes": 0
+    },
+    {
+      "id": "19",
+      "userId": "3",
+      "title": "Học TypeScript",
+      "content": "Bắt đầu học TypeScript để nâng cao skill. So với JavaScript thuần thì nhiều thứ phải khai báo.\n\nType, Interface, Generic... đầu tiên hơi rối nhưng code an toàn hơn nhiều. Lỗi bắt được ngay lúc viết code.\n\nCông ty đang dùng TS nên phải học thôi. Khó hơn JS chút nhưng đáng học.",
+      "isPublic": true,
+      "createdAt": "2025-10-26T11:40:00Z",
+      "likes": 38
+    },
+    {
+      "id": "20",
+      "userId": "4",
+      "title": "Lần đầu làm sushi",
+      "content": "Thử làm sushi tại nhà. Mua cơm sushi, rong biển, cá hồi, dưa leo.\n\nCuộn không đều lắm, nhưng ăn vẫn ngon. Cá hồi tươi nên vị rất ok. Sốt wasabi và gừng ngâm ăn kèm chuẩn.\n\nLàm sushi vui hơn tưởng tượng. Lần sau mời bạn bè tới làm cùng.",
+      "isPublic": true,
+      "createdAt": "2025-10-29T14:20:00Z",
+      "likes": 28
+    },
+    {
+      "id": "21",
+      "userId": "5",
+      "title": "Học guitar 1 tháng",
+      "content": "Tập guitar được 1 tháng rồi. Ngón tay đau điếng nhưng đã quen dần.\n\nHọc được mấy hợp âm cơ bản: C, G, Am, F. Chuyển hợp âm còn chậm nhưng đang tiến bộ.\n\nBài đầu tiên muốn học là Đi về nhà. Nghe đơn giản nhưng đánh hơi khó.",
+      "isPublic": true,
+      "createdAt": "2025-11-01T16:50:00Z",
+      "likes": 23
+    },
+    {
+      "id": "22",
+      "userId": "1",
+      "title": "Project React hoàn thành",
+      "content": "Cuối cùng cũng xong cái project Personal Diary này. Làm gần 1 tuần mới xong.\n\nCRUD diary, authentication, like comment system, responsive UI.\n\nHọc được rất nhiều về React, state management, API call. Hi vọng được điểm cao.",
+      "isPublic": true,
+      "createdAt": "2025-11-03T19:30:00Z",
+      "likes": 48,
+      "updatedAt": "2025-11-03T21:04:14.050Z"
+    },
+    {
+      "id": "23",
+      "userId": "6",
+      "title": "Ngày tập chân đau nhất",
+      "content": "Hôm nay tập chân nặng, squat 100kg x 5 reps x 5 sets. Chân run lắc cả rồi.\n\nBắp chân, đùi, mông đều đau. Đi lên xuống cầu thang cũng khó. Nhưng no pain no gain.\n\nNgày mai sẽ đau hơn chắc chắn. Nhưng mà kệ, muscle growth là vậy đó.",
+      "isPublic": true,
+      "createdAt": "2025-11-02T19:00:00Z",
+      "likes": 19
+    },
+    {
+      "id": "24",
+      "userId": "7",
+      "title": "Binge watch Breaking Bad",
+      "content": "3 ngày cày xong Breaking Bad. 5 seasons 62 episodes. Mắt mỏi nhừ.\n\nWalter White từ giáo viên hoá học thành trùm ma túy. Character development đỉnh cao. Diễn xuất của Bryan Cranston không chê vào đâu được.\n\nBest TV series mình từng xem. Giờ xem Better Call Saul tiếp.",
+      "isPublic": true,
+      "createdAt": "2025-10-31T22:30:00Z",
+      "likes": 43
+    },
+    {
+      "id": "25",
+      "userId": "8",
+      "title": "Nhớ nhà quá",
+      "content": "Ở trọ xa nhà, đôi khi cảm thấy cô đơn. Nhớ cơm mẹ nấu, nhớ tiếng ba gọi ăn cơm.\n\nCuối tuần sẽ về nhà thăm. Mua ít trái cây cho ba mẹ.\n\nLớn lên mới biết quý gia đình. Những điều nhỏ nhặt ngày xưa giờ lại nhớ nhất.",
+      "isPublic": false,
+      "createdAt": "2025-10-28T21:45:00Z",
+      "likes": 0
+    },
+    {
+      "id": "6740",
+      "title": "FPTxFlash vô địchhhhhhhhh",
+      "content": "Sống đủ lâu để nhìn thấy Maris vô địch =))))))))))",
+      "isPublic": true,
+      "userId": "1",
+      "updatedAt": "2025-11-03T21:20:07.830Z",
+      "createdAt": "2025-11-03T21:14:46.730Z",
+      "likes": 1
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "diaryId": "1",
+      "userId": "3",
+      "guestName": "max_kepter",
+      "content": "React ban đầu lạ nhưng quen rồi sẽ thấy hay lắm. Cố lên!",
+      "createdAt": "2025-09-06T20:00:00Z"
+    },
+    {
+      "id": "2",
+      "diaryId": "1",
+      "userId": "7",
+      "guestName": "minh_mot",
+      "content": "Mình cũng đang học React, khó thật. Nhưng docs của React viết khá dễ hiểu.",
+      "createdAt": "2025-09-06T21:30:00Z"
+    },
+    {
+      "id": "3",
+      "diaryId": "2",
+      "userId": "5",
+      "guestName": "nart_an",
+      "content": "Challenger đỉnh quá bro! Mình застрял ở Diamond mãi không lên được.",
+      "createdAt": "2025-09-08T22:45:00Z"
+    },
+    {
+      "id": "4",
+      "diaryId": "2",
+      "userId": "1",
+      "guestName": "thcamm",
+      "content": "Yasuo main thì phải tôn trọng. Carry team kiểu gì vậy bro?",
+      "createdAt": "2025-09-09T08:20:00Z"
+    },
+    {
+      "id": "5",
+      "diaryId": "4",
+      "userId": "6",
+      "guestName": "duong_bui",
+      "content": "Phở bò tự nấu ngon hơn ngoài hàng nhiều. Nhớ cho thêm rau răm nhé!",
+      "createdAt": "2025-09-13T13:00:00Z"
+    },
+    {
+      "id": "6",
+      "diaryId": "4",
+      "userId": "8",
+      "guestName": "thi_thao",
+      "content": "Mình cũng thích nấu phở. Nhưng hầm xương 4 tiếng hơi lâu, chắc phải dậy sớm.",
+      "createdAt": "2025-09-13T15:20:00Z"
+    },
+    {
+      "id": "7",
+      "diaryId": "5",
+      "userId": "1",
+      "guestName": "thcamm",
+      "content": "Playlist mưa chuẩn luôn. Thêm Anh đã quen với cô đơn nữa là perfect.",
+      "createdAt": "2025-09-16T18:00:00Z"
+    },
+    {
+      "id": "8",
+      "diaryId": "5",
+      "userId": "8",
+      "guestName": "thi_thao",
+      "content": "Nghe mưa mà chill, tôi thích Đen Vâu hơn. Mợ nghe không nói cho.",
+      "createdAt": "2025-09-16T19:15:00Z"
+    },
+    {
+      "id": "9",
+      "diaryId": "7",
+      "userId": "1",
+      "guestName": "thcamm",
+      "content": "Gym lần đầu đau là bình thường. Tuần sau sẽ quen, cứ tập đều đặn nhé.",
+      "createdAt": "2025-09-21T19:30:00Z"
+    },
+    {
+      "id": "10",
+      "diaryId": "7",
+      "userId": "4",
+      "guestName": "master_long",
+      "content": "Squat và deadlift là 2 bài tập quan trọng nhất. Form chuẩn thì tiến bộ nhanh lắm.",
+      "createdAt": "2025-09-21T20:00:00Z"
+    },
+    {
+      "id": "11",
+      "diaryId": "8",
+      "userId": "5",
+      "guestName": "nart_an",
+      "content": "Everything Everywhere masterpiece! Michelle Yeoh diễn cảm xúc cực hay.",
+      "createdAt": "2025-09-24T21:00:00Z"
+    },
+    {
+      "id": "12",
+      "diaryId": "8",
+      "userId": "3",
+      "guestName": "max_kepter",
+      "content": "Phim này triết lý sâu sắc. Xem lần 1 chưa hiểu, lần 2 mới thấm.",
+      "createdAt": "2025-09-24T22:10:00Z"
+    },
+    {
+      "id": "13",
+      "diaryId": "10",
+      "userId": "4",
+      "guestName": "master_long",
+      "content": "Đồ Thái ngon thật. Tom Yum chua cay chuẩn vị. Nhà hàng nào vậy bạn?",
+      "createdAt": "2025-09-30T14:30:00Z"
+    },
+    {
+      "id": "14",
+      "diaryId": "10",
+      "userId": "8",
+      "guestName": "thi_thao",
+      "content": "Mango Sticky Rice món này mình thích nhất. Ăn hoài không chán.",
+      "createdAt": "2025-09-30T16:00:00Z"
+    },
+    {
+      "id": "15",
+      "diaryId": "11",
+      "userId": "1",
+      "guestName": "thcamm",
+      "content": "Bug async await mình cũng từng gặp. Khó nhận ra lắm. Good job!",
+      "createdAt": "2025-10-02T10:00:00Z"
+    },
+    {
+      "id": "16",
+      "diaryId": "11",
+      "userId": "7",
+      "guestName": "minh_mot",
+      "content": "Error message đọc kỹ thì 80% biết lỗi ở đâu. Nhưng đôi khi nó cryptic vãi.",
+      "createdAt": "2025-10-02T11:20:00Z"
+    },
+    {
+      "id": "17",
+      "diaryId": "12",
+      "userId": "5",
+      "guestName": "nart_an",
+      "content": "Bánh mì tự làm thơm hơn mua ngoài nhiều. Lần sau thử làm bánh mì que nhé!",
+      "createdAt": "2025-10-05T16:00:00Z"
+    },
+    {
+      "id": "18",
+      "diaryId": "13",
+      "userId": "1",
+      "guestName": "thcamm",
+      "content": "Concert Sơn Tùng phải đi 1 lần. Không khí cuồng nhiệt lắm. Ước mình được đi.",
+      "createdAt": "2025-10-08T23:30:00Z"
+    },
+    {
+      "id": "19",
+      "diaryId": "13",
+      "userId": "8",
+      "guestName": "thi_thao",
+      "content": "Mình cũng đi concert này! Đứng hàng 3 gần sân khấu. Tuyệt vời!",
+      "createdAt": "2025-10-09T08:00:00Z"
+    },
+    {
+      "id": "20",
+      "diaryId": "15",
+      "userId": "2",
+      "guestName": "the_hunter",
+      "content": "Tăng 2kg trong 1 tháng tốt đấy. Mình tập 3 tháng mới tăng được 3kg.",
+      "createdAt": "2025-10-14T18:00:00Z"
+    },
+    {
+      "id": "21",
+      "diaryId": "16",
+      "userId": "1",
+      "guestName": "thcamm",
+      "content": "Nolan làm phim là phải xem rạp. IMAX thì còn đỉnh hơn nữa.",
+      "createdAt": "2025-10-17T22:00:00Z"
+    },
+    {
+      "id": "22",
+      "diaryId": "16",
+      "userId": "7",
+      "guestName": "minh_mot",
+      "content": "Cillian Murphy xứng đáng Oscar. Diễn xuất quá tốt. Interstellar cũng hay ngang ngửa.",
+      "createdAt": "2025-10-18T09:30:00Z"
+    },
+    {
+      "id": "23",
+      "diaryId": "17",
+      "userId": "3",
+      "guestName": "max_kepter",
+      "content": "Ngày đầu thực tập hồi hộp là bình thường. Cứ hỏi nhiều, học hỏi nhiều là được.",
+      "createdAt": "2025-10-20T09:00:00Z"
+    },
+    {
+      "id": "24",
+      "diaryId": "19",
+      "userId": "1",
+      "guestName": "thcamm",
+      "content": "TypeScript khó hơn JS nhưng code pro hơn nhiều. Mình đang học đây.",
+      "createdAt": "2025-10-26T12:30:00Z"
+    },
+    {
+      "id": "25",
+      "diaryId": "19",
+      "userId": "7",
+      "guestName": "minh_mot",
+      "content": "Generic trong TS khó nhất. Nhưng hiểu rồi thì viết code rất sạch.",
+      "createdAt": "2025-10-26T14:00:00Z"
+    },
+    {
+      "id": "26",
+      "diaryId": "20",
+      "userId": "4",
+      "guestName": "master_long",
+      "content": "Sushi tự làm vui lắm. Mình hay làm cho bạn bè tới nhà ăn.",
+      "createdAt": "2025-10-29T15:00:00Z"
+    },
+    {
+      "id": "27",
+      "diaryId": "21",
+      "userId": "1",
+      "guestName": "thcamm",
+      "content": "Guitar đau tay là chuyện bình thường. Tập đều sẽ có vết chai, sau đó không đau nữa.",
+      "createdAt": "2025-11-01T17:30:00Z"
+    },
+    {
+      "id": "28",
+      "diaryId": "22",
+      "userId": "3",
+      "guestName": "max_kepter",
+      "content": "Project này nghe hay đấy! Có thể share GitHub link không? Học hỏi tí.",
+      "createdAt": "2025-11-03T20:00:00Z"
+    },
+    {
+      "id": "29",
+      "diaryId": "22",
+      "userId": "7",
+      "guestName": "minh_mot",
+      "content": "1 tuần làm xong project như này xứng đáng điểm cao. Chúc mừng bro!",
+      "createdAt": "2025-11-03T20:15:00Z"
+    },
+    {
+      "id": "30",
+      "diaryId": "24",
+      "userId": "5",
+      "guestName": "nart_an",
+      "content": "Breaking Bad legendary! Better Call Saul cũng hay không kém đâu.",
+      "createdAt": "2025-10-31T23:00:00Z"
+    },
+    {
+      "id": "5ff0",
+      "diaryId": "6740",
+      "userId": "1",
+      "guestName": "thcamm",
+      "content": "Ae cmt mạnh lên =)))",
+      "createdAt": "2025-11-03T21:20:38.203Z"
+    }
+  ]
+}
