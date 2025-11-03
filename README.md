@@ -1,1 +1,1 @@
-# personal-diary-react
+Personal Diary App - FER202 Assignment
