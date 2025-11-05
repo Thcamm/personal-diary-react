@@ -16,11 +16,63 @@ function Register() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  // Validate username
+  const validateUsername = (value) => {
+    const usernameRegex = /^[a-zA-Z0-9_-]{3,20}$/;
+    return usernameRegex.test(value);
+  };
+
+  // Validate email - CHẶT CHẼ
+  const validateEmail = (value) => {
+    // Regex cơ bản
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    
+    if (!emailRegex.test(value)) return false;
+    
+    // Kiểm tra thêm cấu trúc
+    const parts = value.split('@');
+    if (parts.length !== 2) return false;
+    
+    const [localPart, domainPart] = parts;
+    
+    // Local part (trước @) phải có ít nhất 2 ký tự
+    if (!localPart || localPart.length < 2) return false;
+    
+    // Domain phải có dấu chấm
+    const domainParts = domainPart.split('.');
+    if (domainParts.length < 2) return false;
+    
+    // Domain name và extension phải hợp lệ
+    const domainName = domainParts[0];
+    const extension = domainParts[domainParts.length - 1];
+    
+    // Domain name ít nhất 2 ký tự, extension ít nhất 2 ký tự
+    if (domainName.length < 2 || extension.length < 2) return false;
+    
+    // Extension không được toàn số
+    if (/^\d+$/.test(extension)) return false;
+    
+    return true;
+  };
+
+  // Validate password
+  const validatePassword = (value) => {
+    return value.length >= 6 && value.trim().length > 0;
+  };
+
   const handleChange = (e) => {
+    const { name, value } = e.target;
+    
+    // Trim username để tránh khoảng trắng
+    const trimmedValue = name === 'username' ? value.trim() : value;
+    
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: trimmedValue
     });
+
+    // Clear error khi user đang nhập
+    if (error) setError('');
   };
 
   const handleSubmit = async (e) => {
@@ -28,13 +80,27 @@ function Register() {
     setError('');
 
     // Validation
-    if (formData.password !== formData.confirmPassword) {
-      setError('Mật khẩu xác nhận không khớp!');
+    if (!validateUsername(formData.username)) {
+      setError('Tên đăng nhập không hợp lệ! Chỉ được dùng chữ cái, số, gạch dưới (_) và gạch ngang (-). Độ dài từ 3-20 ký tự.');
+      toast.error('Tên đăng nhập không hợp lệ!');
       return;
     }
 
-    if (formData.password.length < 6) {
-      setError('Mật khẩu phải có ít nhất 6 ký tự!');
+    if (!validateEmail(formData.email)) {
+      setError('Email không hợp lệ! Vui lòng nhập email đúng định dạng (ví dụ: user@example.com)');
+      toast.error('Email không hợp lệ!');
+      return;
+    }
+
+    if (!validatePassword(formData.password)) {
+      setError('Mật khẩu phải có ít nhất 6 ký tự và không được để trống!');
+      toast.error('Mật khẩu không hợp lệ!');
+      return;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      setError('Mật khẩu xác nhận không khớp!');
+      toast.error('Mật khẩu xác nhận không khớp!');
       return;
     }
 
@@ -45,6 +111,7 @@ function Register() {
       const checkUser = await api.api.get(`/users?username=${formData.username}`);
       if (checkUser.data.length > 0) {
         setError('Tên đăng nhập đã tồn tại!');
+        toast.error('Tên đăng nhập đã tồn tại!');
         setLoading(false);
         return;
       }
@@ -53,6 +120,7 @@ function Register() {
       const checkEmail = await api.api.get(`/users?email=${formData.email}`);
       if (checkEmail.data.length > 0) {
         setError('Email đã được sử dụng!');
+        toast.error('Email đã được sử dụng!');
         setLoading(false);
         return;
       }
@@ -106,6 +174,9 @@ function Register() {
                 onChange={handleChange}
                 required
                 minLength={3}
+                maxLength={20}
+                pattern="[a-zA-Z0-9_-]+"
+                title="Chỉ được dùng chữ cái, số, gạch dưới (_) và gạch ngang (-)"
                 style={{ 
                   border: '2px solid #e0e0e0',
                   borderRadius: '10px',
@@ -113,7 +184,7 @@ function Register() {
                 }}
               />
               <Form.Text className="text-muted">
-                Tối thiểu 3 ký tự
+                3-20 ký tự. Chỉ chữ cái, số, dấu _ và -
               </Form.Text>
             </Form.Group>
 
@@ -125,7 +196,7 @@ function Register() {
               <Form.Control
                 type="email"
                 name="email"
-                placeholder="Nhập email"
+                placeholder="user@example.com"
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -135,6 +206,9 @@ function Register() {
                   padding: '12px 16px'
                 }}
               />
+              <Form.Text className="text-muted">
+                Ví dụ: user@gmail.com, name@example.com
+              </Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3">

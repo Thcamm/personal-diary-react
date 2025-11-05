@@ -24,62 +24,68 @@ function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
-const fetchDiaries = async () => {
-  try {
-    // Get all diaries - SẮP XẾP THEO createdAt GIẢM DẦN
-    const response = await api.api.get('/diaries?_sort=createdAt&_order=desc');
-    let allDiaries = response.data;
-    
-    // Filter: 
-    // - Show all PUBLIC diaries
-    // - Show PRIVATE diaries only if user is logged in AND is the owner
-    const filteredDiaries = allDiaries.filter(diary => {
-      if (diary.isPublic) {
-        return true; // Show all public
+  const fetchDiaries = async () => {
+    try {
+      // Get all diaries
+      const response = await api.api.get('/diaries?_sort=createdAt&_order=desc');
+      let allDiaries = response.data;
+      
+      // Filter
+      const filteredDiaries = allDiaries.filter(diary => {
+        if (diary.isPublic) {
+          return true;
+        }
+        return user && diary.userId === user.id;
+      });
+      
+      filteredDiaries.sort((a, b) => {
+        const dateA = new Date(a.createdAt);
+        const dateB = new Date(b.createdAt);
+        return dateB - dateA;
+      });
+      
+      setDiaries(filteredDiaries);
+      
+      // Fetch users
+      const uniqueUserIds = [...new Set(filteredDiaries.map(d => d.userId))];
+      const userPromises = uniqueUserIds.map(userId => 
+        api.getUserById(userId)
+      );
+      const userResponses = await Promise.all(userPromises);
+      
+      const usersMap = {};
+      userResponses.forEach(res => {
+        usersMap[res.data.id] = res.data;
+      });
+      
+      setUsers(usersMap);
+      
+      // Fetch comments for public diaries
+      const commentsMap = {};
+      for (const diary of filteredDiaries) {
+        if (diary.isPublic) {
+          const commentsRes = await api.getComments(diary.id);
+          commentsMap[diary.id] = commentsRes.data;
+        }
       }
-      // Show private only if user owns it
-      return user && diary.userId === user.id;
-    });
-    
-        filteredDiaries.sort((a, b) => {
-      const dateA = new Date(a.createdAt);
-      const dateB = new Date(b.createdAt);
-      return dateB - dateA;
-    });
-    
-    setDiaries(filteredDiaries);
-    
-    // Fetch users
-    const uniqueUserIds = [...new Set(filteredDiaries.map(d => d.userId))];
-    const userPromises = uniqueUserIds.map(userId => 
-      api.getUserById(userId)
-    );
-    const userResponses = await Promise.all(userPromises);
-    
-    const usersMap = {};
-    userResponses.forEach(res => {
-      usersMap[res.data.id] = res.data;
-    });
-    
-    setUsers(usersMap);
-    
-    // Fetch comments for public diaries
-    const commentsMap = {};
-    for (const diary of filteredDiaries) {
-      if (diary.isPublic) {
-        const commentsRes = await api.getComments(diary.id);
-        commentsMap[diary.id] = commentsRes.data;
+      setComments(commentsMap);
+      
+      // FETCH USER'S LIKES
+      if (user) {
+        const userLikesRes = await api.getUserLikes(user.id);
+        const likedDiaryIds = userLikesRes.data.map(like => like.diaryId);
+        setLikedDiaries(new Set(likedDiaryIds));
+      } else {
+        setLikedDiaries(new Set());
       }
+      
+    } catch (err) {
+      toast.error('Unknnown!');
+      console.error(err);
+    } finally {
+      setLoading(false);
     }
-    setComments(commentsMap);
-    
-  } catch (err) {
-    toast.error('Không thể tải nhật ký!');
-    console.error(err);
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   const handleLike = async (diaryId) => {
     if (!user) {
@@ -91,17 +97,20 @@ const fetchDiaries = async () => {
     
     try {
       if (isLiked) {
-        await api.unlikeDiary(diaryId);
+        await api.unlikeDiary(user.id, diaryId);
         setLikedDiaries(prev => {
           const newSet = new Set(prev);
           newSet.delete(diaryId);
           return newSet;
         });
+        toast.success('Đã bỏ thích!');
       } else {
-        await api.likeDiary(diaryId);
+        await api.likeDiary(user.id, diaryId);
         setLikedDiaries(prev => new Set(prev).add(diaryId));
+        toast.success('Đã thích!');
       }
       
+      // Update local state
       setDiaries(diaries.map(d => 
         d.id === diaryId 
           ? { ...d, likes: (d.likes || 0) + (isLiked ? -1 : 1) }
@@ -260,7 +269,7 @@ const fetchDiaries = async () => {
                         />
                         <div>
                           <div className="d-flex align-items-center gap-2">
-                            <strong>{author.username || 'User'}</strong>
+                            <strong>{author.username || 'Unknown'}</strong>
                             {isOwner && <Badge bg="primary" className="small">Bạn</Badge>}
                           </div>
                           <div className="text-muted small">

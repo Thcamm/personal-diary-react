@@ -44,14 +44,58 @@ function DiaryForm() {
     }
   };
 
+  // Validate title
+  const validateTitle = (value) => {
+    const trimmed = value.trim();
+    if (trimmed.length === 0) {
+      return 'Tiêu đề không được để trống!';
+    }
+    if (trimmed.length < 3) {
+      return 'Tiêu đề phải có ít nhất 3 ký tự!';
+    }
+    if (trimmed.length > 200) {
+      return 'Tiêu đề không được quá 200 ký tự!';
+    }
+    return null;
+  };
+
+  // Validate content
+  const validateContent = (value) => {
+    const trimmed = value.trim();
+    if (trimmed.length === 0) {
+      return 'Nội dung không được để trống!';
+    }
+    if (trimmed.length < 10) {
+      return 'Nội dung phải có ít nhất 10 ký tự!';
+    }
+    return null;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     setError('');
 
+    // Validate title
+    const titleError = validateTitle(title);
+    if (titleError) {
+      setError(titleError);
+      toast.error(titleError);
+      return;
+    }
+
+    // Validate content
+    const contentError = validateContent(content);
+    if (contentError) {
+      setError(contentError);
+      toast.error(contentError);
+      return;
+    }
+
+    setLoading(true);
+
     const diaryData = {
-      title,
-      content,
+      title: title.trim(),       // Trim khi lưu
+      content: content.trim(),   // Trim khi lưu
       isPublic,
       userId: user.id,
       updatedAt: new Date().toISOString()
@@ -81,8 +125,8 @@ function DiaryForm() {
     }
   };
 
-  const wordCount = content.split(/\s+/).filter(word => word.length > 0).length;
-  const charCount = content.length;
+  const wordCount = content.trim().split(/\s+/).filter(word => word.length > 0).length;
+  const charCount = content.trim().length;
 
   return (
     <Container className="py-4">
@@ -106,8 +150,13 @@ function DiaryForm() {
                 type="text"
                 placeholder="Nhập tiêu đề nhật ký..."
                 value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                  if (error) setError(''); // Clear error khi user nhập
+                }}
                 required
+                minLength={3}
+                maxLength={200}
                 style={{ 
                   border: '2px solid #e0e0e0',
                   borderRadius: '10px',
@@ -115,6 +164,9 @@ function DiaryForm() {
                   fontSize: '1.1rem'
                 }}
               />
+              <Form.Text className="text-muted">
+                Tối thiểu 3 ký tự, tối đa 200 ký tự
+              </Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-4">
@@ -124,8 +176,12 @@ function DiaryForm() {
                 rows={12}
                 placeholder="Viết gì đó về ngày hôm nay..."
                 value={content}
-                onChange={(e) => setContent(e.target.value)}
+                onChange={(e) => {
+                  setContent(e.target.value);
+                  if (error) setError(''); // Clear error khi user nhập
+                }}
                 required
+                minLength={10}
                 style={{ 
                   border: '2px solid #e0e0e0',
                   borderRadius: '10px',
@@ -139,7 +195,7 @@ function DiaryForm() {
                   {wordCount} từ · {charCount} ký tự
                 </small>
                 <small className="text-muted">
-                  {content.length > 0 ? `${Math.ceil(content.length / 500)} phút đọc` : ''}
+                  {charCount > 0 ? `${Math.ceil(charCount / 500)} phút đọc` : 'Tối thiểu 10 ký tự'}
                 </small>
               </div>
             </Form.Group>

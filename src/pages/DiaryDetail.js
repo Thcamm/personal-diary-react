@@ -268,7 +268,7 @@ function DiaryDetail() {
                 to={`/diary/edit/${diary.id}`} 
                 className="btn-gradient-primary"
               >
-                ✏️ Sửa
+                 Sửa
               </Button>
               <Button 
                 variant="outline-secondary" 

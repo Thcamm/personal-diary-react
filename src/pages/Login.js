@@ -21,9 +21,57 @@ function Login() {
     }
   }, [user, navigate]);
 
+  // Validate username
+  const validateUsername = (value) => {
+    // Chỉ cho phép: chữ cái, số, gạch dưới, gạch ngang
+    // Độ dài: 3-20 ký tự
+    // Không cho phép: khoảng trắng, ký tự đặc biệt
+    const usernameRegex = /^[a-zA-Z0-9_-]{3,20}$/;
+    return usernameRegex.test(value);
+  };
+
+  // Validate password
+  const validatePassword = (value) => {
+    // Tối thiểu 6 ký tự
+    // Không được toàn khoảng trắng
+    return value.length >= 6 && value.trim().length > 0;
+  };
+
+  const handleUsernameChange = (e) => {
+    const value = e.target.value;
+    // Loại bỏ khoảng trắng đầu cuối
+    const trimmedValue = value.trim();
+    setUsername(trimmedValue);
+    
+    // Clear error khi user đang nhập
+    if (error) setError('');
+  };
+
+  const handlePasswordChange = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+    
+    // Clear error khi user đang nhập
+    if (error) setError('');
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+
+    // Client-side validation
+    if (!validateUsername(username)) {
+      setError('Tên đăng nhập không hợp lệ! Chỉ được dùng chữ cái, số, gạch dưới (_) và gạch ngang (-). Độ dài từ 3-20 ký tự.');
+      toast.error('Tên đăng nhập không hợp lệ!');
+      return;
+    }
+
+    if (!validatePassword(password)) {
+      setError('Mật khẩu phải có ít nhất 6 ký tự và không được để trống!');
+      toast.error('Mật khẩu không hợp lệ!');
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -71,8 +119,11 @@ function Login() {
                 type="text"
                 placeholder="Nhập tên đăng nhập"
                 value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={handleUsernameChange}
                 required
+                minLength={3}
+                maxLength={20}
+                pattern="[a-zA-Z0-9_-]+"
                 style={{ 
                   border: '2px solid #e0e0e0',
                   borderRadius: '10px',
@@ -90,8 +141,9 @@ function Login() {
                 type="password"
                 placeholder="Nhập mật khẩu"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={handlePasswordChange}
                 required
+                minLength={6}
                 style={{ 
                   border: '2px solid #e0e0e0',
                   borderRadius: '10px',

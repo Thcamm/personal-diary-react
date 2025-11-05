@@ -67,12 +67,13 @@
   ],
   "diaries": [
     {
-      "title": "Ngày đầu học React",
-      "content": "Hôm nay bắt đầu môn FER202, thầy giới thiệu về React. Nhìn cú pháp lạ lạ nhưng thú vị phết. \nThôi giờ về nhà đọc docs thôi, hy vọng không quá khó..",
-      "isPublic": true,
+      "id": "1",
       "userId": "1",
-      "createdAt": "2025-09-06T10:10:00Z",
-      "id": "1"
+      "title": "Ngày đầu học React",
+      "content": "Hôm nay bắt đầu môn FER202, thầy giới thiệu về React và JSX. Nhìn cú pháp lạ lạ nhưng thú vị phết.\n\nCó vẻ khác hẳn với HTML thuần mình học hồi trước. Thầy bảo học xong sẽ làm được SPA, nghe xịn ghê.\n\nThôi giờ về nhà đọc docs thôi, hy vọng không quá khó.",
+      "isPublic": true,
+      "createdAt": "2025-09-06T19:30:00Z",
+      "likes": 18
     },
     {
       "id": "2",
@@ -108,17 +109,16 @@
       "content": "Trời mưa cả ngày, mở playlist chill nghe tới tối luôn.\n\nÔng mặt trời, Sao anh chưa về nhà, Em của ngày hôm qua... Những bài này nghe hoài không chán.\n\nThêm tí Sơn Tùng nữa là chuẩn. Có điều nghe nhiều quá hơi buồn, nhưng thôi kệ.",
       "isPublic": true,
       "createdAt": "2025-09-16T17:20:00Z",
-      "likes": 29
+      "likes": 28
     },
     {
       "id": "6",
       "userId": "1",
-      "title": "Hôm nay tôi buồn",
-      "content": "Chả biết sao buồn =)))))))",
+      "title": "State và Props khó hiểu vãi",
+      "content": "Học tới state và props trong React mà đầu mình như sắp nổ tung. Khi nào dùng state, khi nào dùng props?\n\nProps thì pass từ cha xuống con, state thì quản lý trong component. Nghe đơn giản nhưng làm bài tập thì rối não.\n\nThôi xem lại video thầy giảng vậy. Chắc xem 3-4 lần mới hiểu.",
       "isPublic": false,
       "createdAt": "2025-09-19T21:10:00Z",
-      "likes": 0,
-      "updatedAt": "2025-11-03T21:32:02.374Z"
+      "likes": 0
     },
     {
       "id": "7",
@@ -187,11 +187,10 @@
       "id": "14",
       "userId": "1",
       "title": "useEffect hook làm mình rối não",
-      "content": "Dependency array trong useEffect này phức tạp thật. Để rỗng thì chạy 1 lần, không để thì chạy mỗi lần render.",
+      "content": "Dependency array trong useEffect này phức tạp thật. Để rỗng thì chạy 1 lần, không để thì chạy mỗi lần render.\n\nCòn để biến vào thì chạy khi biến đó thay đổi. Nghe thì đơn giản nhưng làm bài tập toàn bị infinite loop.\n\nPhải hiểu rõ lifecycle mới dùng được cái này. Đau đầu vãi.",
       "isPublic": false,
       "createdAt": "2025-10-11T20:15:00Z",
-      "likes": 0,
-      "updatedAt": "2025-11-03T21:04:52.971Z"
+      "likes": 0
     },
     {
       "id": "15",
@@ -245,7 +244,7 @@
       "content": "Thử làm sushi tại nhà. Mua cơm sushi, rong biển, cá hồi, dưa leo.\n\nCuộn không đều lắm, nhưng ăn vẫn ngon. Cá hồi tươi nên vị rất ok. Sốt wasabi và gừng ngâm ăn kèm chuẩn.\n\nLàm sushi vui hơn tưởng tượng. Lần sau mời bạn bè tới làm cùng.",
       "isPublic": true,
       "createdAt": "2025-10-29T14:20:00Z",
-      "likes": 28
+      "likes": 27
     },
     {
       "id": "21",
@@ -260,11 +259,10 @@
       "id": "22",
       "userId": "1",
       "title": "Project React hoàn thành",
-      "content": "Cuối cùng cũng xong cái project Personal Diary này. Làm gần 1 tuần mới xong.\n\nCRUD diary, authentication, like comment system, responsive UI.\n\nHọc được rất nhiều về React, state management, API call. Hi vọng được điểm cao.",
+      "content": "Cuối cùng cũng xong cái project Personal Diary này. Làm gần 1 tuần mới xong.\n\nCRUD diary, authentication, like comment system, responsive UI. Tất cả đều tự code, không copy paste.\n\nHọc được rất nhiều về React, state management, API call. Hi vọng được điểm cao.",
       "isPublic": true,
       "createdAt": "2025-11-03T19:30:00Z",
-      "likes": 48,
-      "updatedAt": "2025-11-03T21:04:14.050Z"
+      "likes": 49
     },
     {
       "id": "23",
@@ -282,7 +280,7 @@
       "content": "3 ngày cày xong Breaking Bad. 5 seasons 62 episodes. Mắt mỏi nhừ.\n\nWalter White từ giáo viên hoá học thành trùm ma túy. Character development đỉnh cao. Diễn xuất của Bryan Cranston không chê vào đâu được.\n\nBest TV series mình từng xem. Giờ xem Better Call Saul tiếp.",
       "isPublic": true,
       "createdAt": "2025-10-31T22:30:00Z",
-      "likes": 43
+      "likes": 42
     },
     {
       "id": "25",
@@ -292,16 +290,6 @@
       "isPublic": false,
       "createdAt": "2025-10-28T21:45:00Z",
       "likes": 0
-    },
-    {
-      "id": "6740",
-      "title": "FPTxFlash vô địchhhhhhhhh",
-      "content": "Sống đủ lâu để nhìn thấy Maris vô địch =))))))))))",
-      "isPublic": true,
-      "userId": "1",
-      "updatedAt": "2025-11-03T21:20:07.830Z",
-      "createdAt": "2025-11-03T21:14:46.730Z",
-      "likes": 1
     }
   ],
   "comments": [
@@ -544,14 +532,14 @@
       "guestName": "nart_an",
       "content": "Breaking Bad legendary! Better Call Saul cũng hay không kém đâu.",
       "createdAt": "2025-10-31T23:00:00Z"
-    },
+    }
+  ],
+  "likes": [
     {
-      "id": "5ff0",
-      "diaryId": "6740",
+      "id": "1",
       "userId": "1",
-      "guestName": "thcamm",
-      "content": "Ae cmt mạnh lên =)))",
-      "createdAt": "2025-11-03T21:20:38.203Z"
+      "diaryId": "22",
+      "createdAt": "2025-11-05T05:55:45.231Z"
     }
   ]
 }
